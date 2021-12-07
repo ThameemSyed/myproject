@@ -1,0 +1,30 @@
+How To Install Java on Linux Server
+
+Add the RPM repo to /etc/yum.repos.d/adoptopenjdk.repoto RHEL.
+Full list of versions supported at  https://adoptopenjdk.jfrog.io/adoptopenjdk/rpm.
+
+$ cat <<'EOF' > /etc/yum.repos.d/adoptopenjdk.repo
+
+[AdoptOpenJDK]
+
+name=AdoptOpenJDK
+
+baseurl=http://adoptopenjdk.jfrog.io/adoptopenjdk/rpm/rhel/8/$basearch
+
+enabled=1
+
+gpgcheck=1
+
+gpgkey=https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+
+EOF
+
+2.Install the openjdk version you require
+
+yum install adoptopenjdk-8-openj9
+
+
+
+3.Verify the Java version
+
+$: Java -version
